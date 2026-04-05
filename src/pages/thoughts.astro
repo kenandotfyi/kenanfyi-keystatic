@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content'
+
+const thoughts = await getCollection('thoughts')
+---
+
+Thoughts
+<ul>
+  {thoughts.map(thought => (
+    <li>
+      <a href={`/thoughts/${thought.id}`}>{thought.data.title}</a>
+    </li>
+  ))}
+</ul>

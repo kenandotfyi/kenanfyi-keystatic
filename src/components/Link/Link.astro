@@ -1,0 +1,12 @@
+---
+interface Props {
+  post: { discriminant: string; value: string };
+  label: string;
+}
+
+const { post, label } = Astro.props;
+const collection = post.discriminant === 'thought' ? 'thoughts' : 'bits';
+const href = `/${collection}/${post.value}`;
+---
+
+<a href={href}>{label}</a>

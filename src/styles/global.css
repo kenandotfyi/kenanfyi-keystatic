@@ -1,0 +1,3 @@
+article {
+    counter-reset: sidenote-counter;
+}

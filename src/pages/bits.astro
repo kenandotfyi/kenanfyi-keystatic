@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content'
+
+const bits = await getCollection('bits')
+---
+
+bits
+<ul>
+  {bits.map(bit => (
+    <li>
+      <a href={`/bits/${bit.id}`}>{bit.data.title}</a>
+    </li>
+  ))}
+</ul>

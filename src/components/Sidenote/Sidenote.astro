@@ -1,0 +1,62 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<span class="sidenote-wrapper">
+  <label class="sidenote-number"></label>
+  <span class="sidenote">
+    <span class="sidenote-inner-number"></span>
+    {text}
+  </span>
+</span>
+
+<style>
+  .sidenote-wrapper {
+    position: relative;
+  }
+
+  .sidenote-number {
+    counter-increment: sidenote-counter;
+    cursor: pointer;
+  }
+
+  .sidenote-number::after {
+    content: counter(sidenote-counter);
+    font-size: 0.65rem;
+    vertical-align: super;
+    line-height: 0;
+    color: var(--accent);
+  }
+
+  .sidenote-inner-number {
+    display: inline;
+  }
+
+  .sidenote {
+    float: right;
+    clear: right;
+    width: 200px;
+    margin-right: -240px;
+    margin-top: -1.2rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--fg-secondary);
+  }
+
+  .sidenote-inner-number::before {
+    content: counter(sidenote-counter) " ";
+    font-size: 0.65rem;
+    vertical-align: super;
+  }
+
+  /* Mobile: hide sidenotes, show as footnotes */
+  @media (max-width: 1100px) {
+    .sidenote {
+      display: none;
+    }
+  }
+</style>

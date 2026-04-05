@@ -7,11 +7,30 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "dev:cms": "PUBLIC_ENABLE_CMS=true astro dev",
     "build": "astro build",
+    "build:cms": "PUBLIC_ENABLE_CMS=true astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "preview:cms": "PUBLIC_ENABLE_CMS=true astro preview"
   },
   "dependencies": {
-    "astro": "^6.1.3"
+    "@astrojs/markdoc": "^1.0.3",
+    "@astrojs/node": "^10.0.4",
+    "@astrojs/react": "^5.0.2",
+    "@astrojs/svelte": "^8.0.4",
+    "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/simple-icons": "^1.2.76",
+    "@keystatic/astro": "^5.0.6",
+    "@keystatic/core": "^0.5.50",
+    "@phosphor-icons/react": "^2.1.10",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.1.3",
+    "astro-icon": "^1.1.5",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "reading-time": "^1.5.0",
+    "svelte": "^5.55.1",
+    "typescript": "^5.9.3"
   }
 }

@@ -1,0 +1,16 @@
+---
+
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const bits = await getCollection('bits');
+  return bits.map((bit) => ({
+    params: { slug: bit.id },
+    props: { bit },
+  }));
+}
+
+const { bit } = Astro.props;
+const { Content } = await render(bit);
+---
+<Content />

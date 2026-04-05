@@ -1,0 +1,36 @@
+---
+
+import "../../styles/global.css";
+import { getCollection, render } from 'astro:content';
+import readingTime from "reading-time";
+
+export async function getStaticPaths() {
+  const thoughts = await getCollection('thoughts');
+  return thoughts.map(thought => ({
+    params: { slug: thought.id },
+    props: { thought },
+  }));
+}
+
+const { thought } = Astro.props;
+const { Content } = await render(thought);
+
+// calculate reading time
+const minutes = readingTime(thought.body ?? '').text;
+---
+
+  <article>
+    <h1>{thought.data.title}</h1>
+    <time datetime={thought.data.published.toISOString()}>
+      {thought.data.published.toLocaleDateString()}
+    </time>
+    - {minutes}
+    <Content />
+  </article>
+
+
+<style>
+:global(body) {
+    width: 75ch;
+}
+</style>
