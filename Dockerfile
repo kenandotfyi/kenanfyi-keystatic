@@ -8,6 +8,7 @@ ENV PUBLIC_ENABLE_CMS=true
 RUN pnpm build
 
 FROM node:22-alpine AS runner
+RUN apk add --no-cache curl
 WORKDIR /app
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
