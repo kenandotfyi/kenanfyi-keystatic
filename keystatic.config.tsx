@@ -8,7 +8,6 @@ const storage = useGithub
   ? {
     kind: 'github' as const,
     repo: { owner: 'kenandotfyi', name: 'kenanfyi-keystatic' },
-    branchPrefix: 'content/',
   }
   : { kind: 'local' as const };
 
