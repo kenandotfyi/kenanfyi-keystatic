@@ -13,10 +13,9 @@ export default defineConfig({
   output: enableCMS ? 'server' : 'static',
   adapter: enableCMS ? node({ mode: 'standalone' }) : undefined,
   integrations: [
-    react(),
     markdoc(),
     svelte(),
     icon(),
-    ...(enableCMS ? [keystatic()] : []),
+    ...(enableCMS ? [react(), keystatic()] : []),
   ],
 });
